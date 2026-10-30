@@ -1,0 +1,17 @@
+﻿SWD 运行验证（pyOCD + DAPLink，读 RAM 变量）
+变量地址：
+  0x2000303C  g_aht20_ready      (1 = AHT20 初始化成功)
+  0x20003040  g_task_aht20_count (每 2 s +1)
+  0x20003044  g_task_led1_count  (每 1 s +1)
+  0x20003048  g_task_led2_count  (每 3 s +1)
+  0x2000304C  g_uart_tx_count    (printf 实际写入 USART1 的字节数)
+
+第 1 次：ready=1  aht20=23  led1=48  led2=16  uart=1398
+第 2 次（+5 s）：aht20=26  led1=54  led2=18  uart=1533
+第 3 次：aht20=32  led1=67  led2=23  uart=1803
+第 4 次（+6 s）：aht20=35  led1=74  led2=25  uart=1938
+
+结论：
+  1) AHT20 初始化成功（ready=1），读数每 2 s 增加 1 次；
+  2) LED1 约 1 s 一次、LED2 约 3 s 一次，三个任务调度正常；
+  3) 串口每 2 s 增加约 45 字节，printf 正在通过 USART1 输出。

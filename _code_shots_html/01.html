@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: #eef2f7;
+  padding: 28px;
+  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+}
+.page {
+  width: 1240px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #d8dee6;
+  border-radius: 10px;
+  box-shadow: 0 8px 28px rgba(20, 40, 70, 0.10);
+  overflow: hidden;
+}
+.header {
+  background: #1f3a5f;
+  color: #ffffff;
+  padding: 18px 26px 17px 26px;
+}
+.title { font-size: 24px; font-weight: 700; letter-spacing: 0.3px; }
+.subtitle { margin-top: 5px; font-size: 13px; color: #c9d6e8; }
+.code-card { padding: 18px 22px 20px 22px; }
+.footer {
+  padding: 0 26px 16px 26px;
+  color: #6b7785;
+  font-size: 12px;
+  font-family: Consolas, "Cascadia Mono", monospace;
+}
+.codehilite {
+  background: #fbfcfe !important;
+  border: 1px solid #e1e6ed;
+  border-radius: 6px;
+  padding: 14px 16px;
+  overflow: visible;
+}
+.codehilite table { border-spacing: 0; border-collapse: collapse; width: 100%; }
+.codehilite td { vertical-align: top; }
+.codehilite pre {
+  margin: 0;
+  font-family: Consolas, "Cascadia Mono", "Microsoft YaHei", monospace;
+  font-size: 14px;
+  line-height: 1.62;
+  white-space: pre;
+}
+.codehilite .linenos {
+  color: #8c959f;
+  padding-right: 14px;
+  border-right: 1px solid #e1e6ed;
+  text-align: right;
+  user-select: none;
+}
+.codehilite .linenos pre { color: #8c959f; font-size: 14px; line-height: 1.62; }
+.codehilite .code { padding-left: 14px; }
+
+pre { line-height: 125%; }
+td.linenos .normal { color: #666666; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: #666666; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.codehilite .hll { background-color: #ffffcc }
+.codehilite { background: #f0f0f0; }
+.codehilite .c { color: #60A0B0; font-style: italic } /* Comment */
+.codehilite .err { border: 1px solid #F00 } /* Error */
+.codehilite .k { color: #007020; font-weight: bold } /* Keyword */
+.codehilite .o { color: #666 } /* Operator */
+.codehilite .ch { color: #60A0B0; font-style: italic } /* Comment.Hashbang */
+.codehilite .cm { color: #60A0B0; font-style: italic } /* Comment.Multiline */
+.codehilite .cp { color: #007020 } /* Comment.Preproc */
+.codehilite .cpf { color: #60A0B0; font-style: italic } /* Comment.PreprocFile */
+.codehilite .c1 { color: #60A0B0; font-style: italic } /* Comment.Single */
+.codehilite .cs { color: #60A0B0; background-color: #FFF0F0 } /* Comment.Special */
+.codehilite .gd { color: #A00000 } /* Generic.Deleted */
+.codehilite .ge { font-style: italic } /* Generic.Emph */
+.codehilite .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.codehilite .gr { color: #F00 } /* Generic.Error */
+.codehilite .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.codehilite .gi { color: #00A000 } /* Generic.Inserted */
+.codehilite .go { color: #888 } /* Generic.Output */
+.codehilite .gp { color: #C65D09; font-weight: bold } /* Generic.Prompt */
+.codehilite .gs { font-weight: bold } /* Generic.Strong */
+.codehilite .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.codehilite .gt { color: #04D } /* Generic.Traceback */
+.codehilite .kc { color: #007020; font-weight: bold } /* Keyword.Constant */
+.codehilite .kd { color: #007020; font-weight: bold } /* Keyword.Declaration */
+.codehilite .kn { color: #007020; font-weight: bold } /* Keyword.Namespace */
+.codehilite .kp { color: #007020 } /* Keyword.Pseudo */
+.codehilite .kr { color: #007020; font-weight: bold } /* Keyword.Reserved */
+.codehilite .kt { color: #902000 } /* Keyword.Type */
+.codehilite .m { color: #40A070 } /* Literal.Number */
+.codehilite .s { color: #4070A0 } /* Literal.String */
+.codehilite .na { color: #4070A0 } /* Name.Attribute */
+.codehilite .nb { color: #007020 } /* Name.Builtin */
+.codehilite .nc { color: #0E84B5; font-weight: bold } /* Name.Class */
+.codehilite .no { color: #60ADD5 } /* Name.Constant */
+.codehilite .nd { color: #555; font-weight: bold } /* Name.Decorator */
+.codehilite .ni { color: #D55537; font-weight: bold } /* Name.Entity */
+.codehilite .ne { color: #007020 } /* Name.Exception */
+.codehilite .nf { color: #06287E } /* Name.Function */
+.codehilite .nl { color: #002070; font-weight: bold } /* Name.Label */
+.codehilite .nn { color: #0E84B5; font-weight: bold } /* Name.Namespace */
+.codehilite .nt { color: #062873; font-weight: bold } /* Name.Tag */
+.codehilite .nv { color: #BB60D5 } /* Name.Variable */
+.codehilite .ow { color: #007020; font-weight: bold } /* Operator.Word */
+.codehilite .w { color: #BBB } /* Text.Whitespace */
+.codehilite .mb { color: #40A070 } /* Literal.Number.Bin */
+.codehilite .mf { color: #40A070 } /* Literal.Number.Float */
+.codehilite .mh { color: #40A070 } /* Literal.Number.Hex */
+.codehilite .mi { color: #40A070 } /* Literal.Number.Integer */
+.codehilite .mo { color: #40A070 } /* Literal.Number.Oct */
+.codehilite .sa { color: #4070A0 } /* Literal.String.Affix */
+.codehilite .sb { color: #4070A0 } /* Literal.String.Backtick */
+.codehilite .sc { color: #4070A0 } /* Literal.String.Char */
+.codehilite .dl { color: #4070A0 } /* Literal.String.Delimiter */
+.codehilite .sd { color: #4070A0; font-style: italic } /* Literal.String.Doc */
+.codehilite .s2 { color: #4070A0 } /* Literal.String.Double */
+.codehilite .se { color: #4070A0; font-weight: bold } /* Literal.String.Escape */
+.codehilite .sh { color: #4070A0 } /* Literal.String.Heredoc */
+.codehilite .si { color: #70A0D0; font-style: italic } /* Literal.String.Interpol */
+.codehilite .sx { color: #C65D09 } /* Literal.String.Other */
+.codehilite .sr { color: #235388 } /* Literal.String.Regex */
+.codehilite .s1 { color: #4070A0 } /* Literal.String.Single */
+.codehilite .ss { color: #517918 } /* Literal.String.Symbol */
+.codehilite .bp { color: #007020 } /* Name.Builtin.Pseudo */
+.codehilite .fm { color: #06287E } /* Name.Function.Magic */
+.codehilite .vc { color: #BB60D5 } /* Name.Variable.Class */
+.codehilite .vg { color: #BB60D5 } /* Name.Variable.Global */
+.codehilite .vi { color: #BB60D5 } /* Name.Variable.Instance */
+.codehilite .vm { color: #BB60D5 } /* Name.Variable.Magic */
+.codehilite .il { color: #40A070 } /* Literal.Number.Integer.Long */</style></head>
+<body><div class="page">
+  <div class="header">
+    <div class="title">User/main.c — 任务优先级与三个任务</div>
+    <div class="subtitle">STM32F103C8T6 + uC/OS-II 任务一 · 第 18–86 行</div>
+  </div>
+  <div class="code-card"><div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span></pre></div></td><td class="code"><div><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">"stm32f10x.h"</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"ucos_ii.h"</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"delay.h"</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"usart.h"</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">"led.h"</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="cm">/* 任务优先级：数值越小优先级越高 */</span>
+<span class="cp">#define TASK_LED1_PRIO       5u</span>
+<span class="cp">#define TASK_LED2_PRIO       6u</span>
+<span class="cp">#define TASK_HELLO_PRIO      7u</span>
+
+<span class="cm">/* 每个任务堆栈 512 个 OS_STK（32 位），即 2 KB */</span>
+<span class="cp">#define TASK_STK_SIZE        512u</span>
+
+<span class="k">static</span><span class="w"> </span><span class="n">OS_STK</span><span class="w"> </span><span class="n">TaskLED1Stk</span><span class="p">[</span><span class="n">TASK_STK_SIZE</span><span class="p">];</span>
+<span class="k">static</span><span class="w"> </span><span class="n">OS_STK</span><span class="w"> </span><span class="n">TaskLED2Stk</span><span class="p">[</span><span class="n">TASK_STK_SIZE</span><span class="p">];</span>
+<span class="k">static</span><span class="w"> </span><span class="n">OS_STK</span><span class="w"> </span><span class="n">TaskHelloStk</span><span class="p">[</span><span class="n">TASK_STK_SIZE</span><span class="p">];</span>
+
+<span class="cm">/* 调试计数：可用 DAPLink 直接读取，验证三个任务的实际运行周期 */</span>
+<span class="k">volatile</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">g_task_led1_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0u</span><span class="p">;</span>
+<span class="k">volatile</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">g_task_led2_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0u</span><span class="p">;</span>
+<span class="k">volatile</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">g_task_hello_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0u</span><span class="p">;</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * SysTick 中断服务程序。</span>
+<span class="cm"> * uC/OS-II 的系统节拍由 SysTick 产生，OS_CPU_SysTickHandler() 内部会</span>
+<span class="cm"> * 调用 OSIntEnter()、OSTimeTick() 和 OSIntExit()。</span>
+<span class="cm"> */</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">SysTick_Handler</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">OS_CPU_SysTickHandler</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="cm">/* 任务 1：1 s 周期翻转 LED1（PC13） */</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">TaskLED1</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">p_arg</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">p_arg</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">g_task_led1_count</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="n">LED1_Toggle</span><span class="p">();</span><span class="w">                         </span><span class="cm">/* 亮 -&gt; 灭，或 灭 -&gt; 亮 */</span>
+<span class="w">        </span><span class="n">OSTimeDlyHMSM</span><span class="p">(</span><span class="mi">0u</span><span class="p">,</span><span class="w"> </span><span class="mi">0u</span><span class="p">,</span><span class="w"> </span><span class="mi">1u</span><span class="p">,</span><span class="w"> </span><span class="mi">0u</span><span class="p">);</span><span class="w">         </span><span class="cm">/* 延时 1 s，让出 CPU */</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/* 任务 2：3 s 周期翻转 LED2（PA8） */</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">TaskLED2</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">p_arg</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">p_arg</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">g_task_led2_count</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="n">LED2_Toggle</span><span class="p">();</span>
+<span class="w">        </span><span class="n">OSTimeDlyHMSM</span><span class="p">(</span><span class="mi">0u</span><span class="p">,</span><span class="w"> </span><span class="mi">0u</span><span class="p">,</span><span class="w"> </span><span class="mi">3u</span><span class="p">,</span><span class="w"> </span><span class="mi">0u</span><span class="p">);</span><span class="w">         </span><span class="cm">/* 延时 3 s */</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/* 任务 3：2 s 周期通过 USART1 发送指定字符串 */</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">TaskHello</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">p_arg</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">p_arg</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">g_task_hello_count</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"hello uc/OS! 欢迎来到RTOS多任务环境！</span><span class="se">\r\n</span><span class="s">"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">OSTimeDlyHMSM</span><span class="p">(</span><span class="mi">0u</span><span class="p">,</span><span class="w"> </span><span class="mi">0u</span><span class="p">,</span><span class="w"> </span><span class="mi">2u</span><span class="p">,</span><span class="w"> </span><span class="mi">0u</span><span class="p">);</span><span class="w">         </span><span class="cm">/* 延时 2 s */</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+</div>
+  <div class="footer">F:\Keil files\AHT20\1\Task1_uCOSII\User\main.c</div>
+</div></body></html>

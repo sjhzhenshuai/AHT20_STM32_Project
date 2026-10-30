@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: #eef2f7;
+  padding: 28px;
+  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+}
+.page {
+  width: 1240px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #d8dee6;
+  border-radius: 10px;
+  box-shadow: 0 8px 28px rgba(20, 40, 70, 0.10);
+  overflow: hidden;
+}
+.header {
+  background: #1f3a5f;
+  color: #ffffff;
+  padding: 18px 26px 17px 26px;
+}
+.title { font-size: 24px; font-weight: 700; letter-spacing: 0.3px; }
+.subtitle { margin-top: 5px; font-size: 13px; color: #c9d6e8; }
+.code-card { padding: 18px 22px 20px 22px; }
+.footer {
+  padding: 0 26px 16px 26px;
+  color: #6b7785;
+  font-size: 12px;
+  font-family: Consolas, "Cascadia Mono", monospace;
+}
+.codehilite {
+  background: #fbfcfe !important;
+  border: 1px solid #e1e6ed;
+  border-radius: 6px;
+  padding: 14px 16px;
+  overflow: visible;
+}
+.codehilite table { border-spacing: 0; border-collapse: collapse; width: 100%; }
+.codehilite td { vertical-align: top; }
+.codehilite pre {
+  margin: 0;
+  font-family: Consolas, "Cascadia Mono", "Microsoft YaHei", monospace;
+  font-size: 14px;
+  line-height: 1.62;
+  white-space: pre;
+}
+.codehilite .linenos {
+  color: #8c959f;
+  padding-right: 14px;
+  border-right: 1px solid #e1e6ed;
+  text-align: right;
+  user-select: none;
+}
+.codehilite .linenos pre { color: #8c959f; font-size: 14px; line-height: 1.62; }
+.codehilite .code { padding-left: 14px; }
+
+pre { line-height: 125%; }
+td.linenos .normal { color: #666666; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: #666666; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.codehilite .hll { background-color: #ffffcc }
+.codehilite { background: #f0f0f0; }
+.codehilite .c { color: #60A0B0; font-style: italic } /* Comment */
+.codehilite .err { border: 1px solid #F00 } /* Error */
+.codehilite .k { color: #007020; font-weight: bold } /* Keyword */
+.codehilite .o { color: #666 } /* Operator */
+.codehilite .ch { color: #60A0B0; font-style: italic } /* Comment.Hashbang */
+.codehilite .cm { color: #60A0B0; font-style: italic } /* Comment.Multiline */
+.codehilite .cp { color: #007020 } /* Comment.Preproc */
+.codehilite .cpf { color: #60A0B0; font-style: italic } /* Comment.PreprocFile */
+.codehilite .c1 { color: #60A0B0; font-style: italic } /* Comment.Single */
+.codehilite .cs { color: #60A0B0; background-color: #FFF0F0 } /* Comment.Special */
+.codehilite .gd { color: #A00000 } /* Generic.Deleted */
+.codehilite .ge { font-style: italic } /* Generic.Emph */
+.codehilite .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.codehilite .gr { color: #F00 } /* Generic.Error */
+.codehilite .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.codehilite .gi { color: #00A000 } /* Generic.Inserted */
+.codehilite .go { color: #888 } /* Generic.Output */
+.codehilite .gp { color: #C65D09; font-weight: bold } /* Generic.Prompt */
+.codehilite .gs { font-weight: bold } /* Generic.Strong */
+.codehilite .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.codehilite .gt { color: #04D } /* Generic.Traceback */
+.codehilite .kc { color: #007020; font-weight: bold } /* Keyword.Constant */
+.codehilite .kd { color: #007020; font-weight: bold } /* Keyword.Declaration */
+.codehilite .kn { color: #007020; font-weight: bold } /* Keyword.Namespace */
+.codehilite .kp { color: #007020 } /* Keyword.Pseudo */
+.codehilite .kr { color: #007020; font-weight: bold } /* Keyword.Reserved */
+.codehilite .kt { color: #902000 } /* Keyword.Type */
+.codehilite .m { color: #40A070 } /* Literal.Number */
+.codehilite .s { color: #4070A0 } /* Literal.String */
+.codehilite .na { color: #4070A0 } /* Name.Attribute */
+.codehilite .nb { color: #007020 } /* Name.Builtin */
+.codehilite .nc { color: #0E84B5; font-weight: bold } /* Name.Class */
+.codehilite .no { color: #60ADD5 } /* Name.Constant */
+.codehilite .nd { color: #555; font-weight: bold } /* Name.Decorator */
+.codehilite .ni { color: #D55537; font-weight: bold } /* Name.Entity */
+.codehilite .ne { color: #007020 } /* Name.Exception */
+.codehilite .nf { color: #06287E } /* Name.Function */
+.codehilite .nl { color: #002070; font-weight: bold } /* Name.Label */
+.codehilite .nn { color: #0E84B5; font-weight: bold } /* Name.Namespace */
+.codehilite .nt { color: #062873; font-weight: bold } /* Name.Tag */
+.codehilite .nv { color: #BB60D5 } /* Name.Variable */
+.codehilite .ow { color: #007020; font-weight: bold } /* Operator.Word */
+.codehilite .w { color: #BBB } /* Text.Whitespace */
+.codehilite .mb { color: #40A070 } /* Literal.Number.Bin */
+.codehilite .mf { color: #40A070 } /* Literal.Number.Float */
+.codehilite .mh { color: #40A070 } /* Literal.Number.Hex */
+.codehilite .mi { color: #40A070 } /* Literal.Number.Integer */
+.codehilite .mo { color: #40A070 } /* Literal.Number.Oct */
+.codehilite .sa { color: #4070A0 } /* Literal.String.Affix */
+.codehilite .sb { color: #4070A0 } /* Literal.String.Backtick */
+.codehilite .sc { color: #4070A0 } /* Literal.String.Char */
+.codehilite .dl { color: #4070A0 } /* Literal.String.Delimiter */
+.codehilite .sd { color: #4070A0; font-style: italic } /* Literal.String.Doc */
+.codehilite .s2 { color: #4070A0 } /* Literal.String.Double */
+.codehilite .se { color: #4070A0; font-weight: bold } /* Literal.String.Escape */
+.codehilite .sh { color: #4070A0 } /* Literal.String.Heredoc */
+.codehilite .si { color: #70A0D0; font-style: italic } /* Literal.String.Interpol */
+.codehilite .sx { color: #C65D09 } /* Literal.String.Other */
+.codehilite .sr { color: #235388 } /* Literal.String.Regex */
+.codehilite .s1 { color: #4070A0 } /* Literal.String.Single */
+.codehilite .ss { color: #517918 } /* Literal.String.Symbol */
+.codehilite .bp { color: #007020 } /* Name.Builtin.Pseudo */
+.codehilite .fm { color: #06287E } /* Name.Function.Magic */
+.codehilite .vc { color: #BB60D5 } /* Name.Variable.Class */
+.codehilite .vg { color: #BB60D5 } /* Name.Variable.Global */
+.codehilite .vi { color: #BB60D5 } /* Name.Variable.Instance */
+.codehilite .vm { color: #BB60D5 } /* Name.Variable.Magic */
+.codehilite .il { color: #40A070 } /* Literal.Number.Integer.Long */</style></head>
+<body><div class="page">
+  <div class="header">
+    <div class="title">os_cpu_a.asm — PendSV 上下文切换</div>
+    <div class="subtitle">保存 R4–R11/R14、切换 PSP 与 TCB、异常返回</div>
+  </div>
+  <div class="code-card"><div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span>
+<span class="normal">341</span>
+<span class="normal">342</span>
+<span class="normal">343</span>
+<span class="normal">344</span>
+<span class="normal">345</span>
+<span class="normal">346</span>
+<span class="normal">347</span>
+<span class="normal">348</span>
+<span class="normal">349</span>
+<span class="normal">350</span>
+<span class="normal">351</span>
+<span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span>
+<span class="normal">366</span>
+<span class="normal">367</span>
+<span class="normal">368</span>
+<span class="normal">369</span></pre></div></td><td class="code"><div><pre><span></span><span class="nf">OS_CPU_PendSVHandler</span>
+<span class="w">    </span><span class="nf">CPSID</span><span class="w">   </span><span class="nv">I</span><span class="w">                                                   </span><span class="c1">; Cortex-M7 errata notice. See Note #5</span>
+<span class="w">    </span><span class="nf">MOV32</span><span class="w">   </span><span class="nb">R2</span><span class="p">,</span><span class="w"> </span><span class="nv">OS_KA_BASEPRI_Boundary</span><span class="w">                          </span><span class="c1">; Set BASEPRI priority level required for exception preemption</span>
+<span class="w">    </span><span class="nf">LDR</span><span class="w">     </span><span class="nb">R1</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nb">R2</span><span class="p">]</span>
+<span class="w">    </span><span class="nf">MSR</span><span class="w">     </span><span class="nv">BASEPRI</span><span class="p">,</span><span class="w"> </span><span class="nb">R1</span>
+<span class="w">    </span><span class="nf">DSB</span>
+<span class="w">    </span><span class="nf">ISB</span>
+<span class="w">    </span><span class="nf">CPSIE</span><span class="w">   </span><span class="nv">I</span>
+
+<span class="w">    </span><span class="nf">MRS</span><span class="w">     </span><span class="nb">R0</span><span class="p">,</span><span class="w"> </span><span class="nv">PSP</span><span class="w">                                             </span><span class="c1">; PSP is process stack pointer</span>
+<span class="w">    </span><span class="nf">STMFD</span><span class="w">   </span><span class="nb">R0</span><span class="err">!</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nb">R4</span><span class="o">-</span><span class="nb">R11</span><span class="p">,</span><span class="w"> </span><span class="nb">R14</span><span class="p">}</span><span class="w">                                  </span><span class="c1">; Save remaining regs r4-11, R14 on process stack</span>
+
+<span class="w">    </span><span class="nf">LDR</span><span class="w">     </span><span class="nb">R5</span><span class="p">,</span><span class="w"> </span><span class="err">=</span><span class="nv">OSTCBCur</span><span class="w">                                       </span><span class="c1">; OSTCBCur-&gt;OSTCBStkPtr = SP;</span>
+<span class="w">    </span><span class="nf">LDR</span><span class="w">     </span><span class="nb">R1</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nb">R5</span><span class="p">]</span>
+<span class="w">    </span><span class="nf">STR</span><span class="w">     </span><span class="nb">R0</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nb">R1</span><span class="p">]</span><span class="w">                                            </span><span class="c1">; R0 is SP of process being switched out</span>
+
+<span class="w">                                                                </span><span class="c1">; At this point, entire context of process has been saved</span>
+<span class="w">    </span><span class="nf">MOV</span><span class="w">     </span><span class="nb">R4</span><span class="p">,</span><span class="w"> </span><span class="nv">LR</span><span class="w">                                              </span><span class="c1">; Save LR exc_return value</span>
+<span class="w">    </span><span class="nf">BL</span><span class="w">      </span><span class="nv">OSTaskSwHook</span><span class="w">                                        </span><span class="c1">; Call OSTaskSwHook() for FPU Push &amp; Pop</span>
+
+<span class="w">    </span><span class="nf">LDR</span><span class="w">     </span><span class="nb">R0</span><span class="p">,</span><span class="w"> </span><span class="err">=</span><span class="nv">OSPrioCur</span><span class="w">                                      </span><span class="c1">; OSPrioCur = OSPrioHighRdy;</span>
+<span class="w">    </span><span class="nf">LDR</span><span class="w">     </span><span class="nb">R1</span><span class="p">,</span><span class="w"> </span><span class="err">=</span><span class="nv">OSPrioHighRdy</span>
+<span class="w">    </span><span class="nf">LDRB</span><span class="w">    </span><span class="nb">R2</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nb">R1</span><span class="p">]</span>
+<span class="w">    </span><span class="nf">STRB</span><span class="w">    </span><span class="nb">R2</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nb">R0</span><span class="p">]</span>
+
+<span class="w">    </span><span class="nf">LDR</span><span class="w">     </span><span class="nb">R1</span><span class="p">,</span><span class="w"> </span><span class="err">=</span><span class="nv">OSTCBHighRdy</span><span class="w">                                   </span><span class="c1">; OSTCBCur  = OSTCBHighRdy;</span>
+<span class="w">    </span><span class="nf">LDR</span><span class="w">     </span><span class="nb">R2</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nb">R1</span><span class="p">]</span>
+<span class="w">    </span><span class="nf">STR</span><span class="w">     </span><span class="nb">R2</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nb">R5</span><span class="p">]</span>
+
+<span class="w">    </span><span class="nf">ORR</span><span class="w">     </span><span class="nv">LR</span><span class="p">,</span><span class="w">  </span><span class="nb">R4</span><span class="p">,</span><span class="w"> </span><span class="c1">#0x04                                      ; Ensure exception return uses process stack</span>
+<span class="w">    </span><span class="nf">LDR</span><span class="w">     </span><span class="nb">R0</span><span class="p">,</span><span class="w">  </span><span class="p">[</span><span class="nb">R2</span><span class="p">]</span><span class="w">                                           </span><span class="c1">; R0 is new process SP; SP = OSTCBHighRdy-&gt;OSTCBStkPtr;</span>
+<span class="w">    </span><span class="nf">LDMFD</span><span class="w">   </span><span class="nb">R0</span><span class="err">!</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nb">R4</span><span class="o">-</span><span class="nb">R11</span><span class="p">,</span><span class="w"> </span><span class="nb">R14</span><span class="p">}</span><span class="w">                                  </span><span class="c1">; Restore r4-11, R14 from new process stack</span>
+<span class="w">    </span><span class="nf">MSR</span><span class="w">     </span><span class="nv">PSP</span><span class="p">,</span><span class="w"> </span><span class="nb">R0</span><span class="w">                                             </span><span class="c1">; Load PSP with new process SP</span>
+
+<span class="w">    </span><span class="nf">MOV32</span><span class="w">   </span><span class="nb">R2</span><span class="p">,</span><span class="w"> </span><span class="c1">#0                                              ; Restore BASEPRI priority level to 0</span>
+<span class="w">    </span><span class="nf">CPSID</span><span class="w">   </span><span class="nv">I</span>
+<span class="w">    </span><span class="nf">MSR</span><span class="w">     </span><span class="nv">BASEPRI</span><span class="p">,</span><span class="w"> </span><span class="nb">R2</span>
+<span class="w">    </span><span class="nf">DSB</span>
+<span class="w">    </span><span class="nf">ISB</span>
+<span class="w">    </span><span class="nf">CPSIE</span><span class="w">   </span><span class="nv">I</span>
+<span class="w">    </span><span class="nf">BX</span><span class="w">      </span><span class="nv">LR</span><span class="w">                                                  </span><span class="c1">; Exception return will restore remaining context</span>
+</pre></div></td></tr></table></div>
+</div>
+  <div class="footer">F:\Keil files\AHT20\1\Task1_uCOSII\Middlewares\uC-OS2\uC-OS2\Ports\ARM-Cortex-M\ARMv7-M\ARM\os_cpu_a.asm</div>
+</div></body></html>

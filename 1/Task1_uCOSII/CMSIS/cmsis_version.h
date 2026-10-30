@@ -1,0 +1,8 @@
+#ifndef __CMSIS_VERSION_H
+#define __CMSIS_VERSION_H
+
+#define __CM3_CMSIS_VERSION_MAIN  (0x01)
+#define __CM3_CMSIS_VERSION_SUB   (0x30)
+#define __CM3_CMSIS_VERSION       ((__CM3_CMSIS_VERSION_MAIN << 4) | __CM3_CMSIS_VERSION_SUB)
+
+#endif
